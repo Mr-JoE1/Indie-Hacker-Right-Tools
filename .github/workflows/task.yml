@@ -1,0 +1,27 @@
+name: Daily Task
+
+on:
+  schedule:
+    - cron: '0 23 * * *'  # Triggered daily at 23:00 UTC
+  workflow_dispatch:  # Allow manual triggering of the workflow
+
+jobs:
+  keep-active:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu environment
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Use the latest version of the checkout action
+
+      - name: Update TIME.md
+        run: |
+          # Get the current time and write it to the TIME.md file
+          echo "Current run completion time: $(date -u +"%Y-%m-%d %H:%M:%S")" > TIME.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git add TIME.md
+          git commit -m "Update TIME.md with current time"
+          git push
