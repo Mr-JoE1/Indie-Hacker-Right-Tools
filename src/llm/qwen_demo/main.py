@@ -3,8 +3,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 client = OpenAI(
-    api_key= os.getenv('QWENKEY'),  # 替换成真实DashScope的API_KEY
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",  # 填写DashScope服务endpoint
+    api_key= os.getenv('QWENKEY'),  # Replace with the real DashScope API_KEY
+    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",  # Fill in the DashScope service endpoint
 )
 
 def streamResult():
@@ -17,11 +17,11 @@ def streamResult():
             },
             {
                 'role': 'system',
-                'content': '大型语言模型(llm)已经彻底改变了人工智能领域，使以前被认为是人类独有的自然语言处理任务成为可能...'
+                'content': 'Large language models (LLMs) have revolutionized the field of artificial intelligence, making natural language processing tasks previously considered unique to humans possible...'
             },
             {
                 'role': 'user',
-                'content': '文章讲了什么？'
+                'content': 'What is the article about?'
             }
         ],
         stream=True
@@ -40,7 +40,7 @@ def simpleResult():
             },
             {
                 'role': 'user',
-                'content': '你是谁'
+                'content': 'Who are you?'
             },
         ]
     )

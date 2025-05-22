@@ -1,74 +1,74 @@
-# 导入必要模块
+# Import necessary modules
 import os
 from cerebras.cloud.sdk import Cerebras
 import dotenv
 
 def load_env_variables():
     """
-    加载环境变量。
+    Load environment variables.
     """
     dotenv.load_dotenv()
 
 def create_cerebras_client():
     """
-    创建 Cerebras 客户端实例。
+    Create a Cerebras client instance.
     """
     api_key = os.environ.get("CEREBRAS_API_KEY")
     if not api_key:
-        raise ValueError("环境变量 CEREBRAS_API_KEY 未设置")
+        raise ValueError("Environment variable CEREBRAS_API_KEY is not set")
     return Cerebras(api_key=api_key)
 
 def process_chat(client, chat_history):
     """
-    与用户进行聊天交互，并处理对话逻辑。
+    Chat with the user and handle conversation logic.
     """
     while True:
-        # 获取用户输入
-        user_input = input("用户: ")
+        # Get user input
+        user_input = input("User: ")
         user_message = {"role": "user", "content": user_input}
         
-        # 将用户输入添加到对话历史记录中
+        # Add user input to chat history
         chat_history.append(user_message)
         
-        # 向 Cerebras 发送请求
+        # Send request to Cerebras
         response = client.chat.completions.create(
-            messages=chat_history,  # 使用完整的历史记录来生成回复
+            messages=chat_history,  # Use full history to generate response
             model="llama3.1-8b",
         )
         
-        # 获取助手回复并更新对话历史记录
+        # Get assistant response and update chat history
         assistant_message = response.choices[0].message.content
         chat_history.append({"role": "assistant", "content": assistant_message})
         
-        # 打印助手回复
-        print("助手:", assistant_message)
+        # Print assistant response
+        print("Assistant:", assistant_message)
         
-        # 显示性能统计信息
+        # Display performance statistics
         display_performance_stats(response)
 
 def display_performance_stats(response):
     """
-    显示性能统计信息：处理的总标记数、耗时以及每秒处理的标记数。
+    Display performance statistics: total tokens processed, time taken, and tokens processed per second.
     """
     total_tokens = response.usage.total_tokens
     total_time = response.time_info.total_time
     tokens_per_second = total_tokens / total_time if total_time > 0 else 0
-    print(f"(每秒处理的标记数: {tokens_per_second:.2f})\n")
+    print(f"(Tokens processed per second: {tokens_per_second:.2f})\n")
 
 def main():
     """
-    主函数，用于启动程序。
+    Main function to start the program.
     """
     try:
-        # 加载环境变量
+        # Load environment variables
         load_env_variables()
         client = create_cerebras_client()
         chat_history = []
         process_chat(client, chat_history)
     except KeyboardInterrupt:
-        print("\n程序已退出。")
+        print("\nProgram exited.")
     except Exception as e:
-        print(f"发生错误: {e}")
+        print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     main()

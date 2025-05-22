@@ -6,14 +6,14 @@
 import os
 import google.generativeai as genai
 
-# 使用API密钥进行身份验证
+# Authenticate using API key
 genai.configure(api_key="")
 
-# 创建一个Gemini Pro模型实例
+# Create a Gemini Pro model instance
 model = genai.GenerativeModel('gemini-pro')
 
-# 定义你的问题
-prompt_parts = ["你是谁"]
+# Define your question
+prompt_parts = ["Who are you?"]
 
 response = model.generate_content('What is AI?')
 print(response.text)

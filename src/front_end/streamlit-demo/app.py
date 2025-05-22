@@ -2,51 +2,51 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-# 设置页面标题和图标
-st.set_page_config(page_title="Streamlit 快速 Demo", page_icon="🌟")
+# Set page title and icon
+st.set_page_config(page_title="Streamlit Quick Demo", page_icon="🌟")
 
-# 页面标题
-st.title("🎉 Streamlit 快速 Demo")
+# Page title
+st.title("🎉 Streamlit Quick Demo")
 
-# 输入框
-name = st.text_input("请输入你的名字：", "")
+# Input box
+name = st.text_input("Please enter your name:", "")
 
-# 显示输入内容
+# Display input content
 if name:
-    st.write(f"👋 你好, {name}!")
+    st.write(f"👋 Hello, {name}!")
 
-# 滑块
-age = st.slider("请选择你的年龄：", 0, 100, 25)
+# Slider
+age = st.slider("Please select your age:", 0, 100, 25)
 
-# 显示滑块值
-st.write(f"🧓 你的年龄是：{age}")
+# Display slider value
+st.write(f"🧓 Your age is: {age}")
 
-# 数据表格
-st.subheader("📊 数据表格展示")
+# Data table
+st.subheader("📊 Data Table Display")
 data = pd.DataFrame(
     np.random.randn(10, 3),
-    columns=["列1", "列2", "列3"]
+    columns=["Column 1", "Column 2", "Column 3"]
 )
 st.dataframe(data)
 
-# 图表
-st.subheader("📈 折线图")
+# Chart
+st.subheader("📈 Line Chart")
 st.line_chart(data)
 
-# 侧边栏
-st.sidebar.header("侧边栏选项")
+# Sidebar
+st.sidebar.header("Sidebar Options")
 selected_option = st.sidebar.selectbox(
-    "选择一个选项：",
-    ["选项1", "选项2", "选项3"]
+    "Select an option:",
+    ["Option 1", "Option 2", "Option 3"]
 )
 
-st.sidebar.write(f"你选择了：{selected_option}")
+st.sidebar.write(f"You selected: {selected_option}")
 
-# 文件上传
-st.subheader("📂 文件上传")
-uploaded_file = st.file_uploader("上传文件：", type=["csv", "txt"])
+# File upload
+st.subheader("📂 File Upload")
+uploaded_file = st.file_uploader("Upload file:", type=["csv", "txt"])
 
 if uploaded_file is not None:
     file_data = pd.read_csv(uploaded_file)
-    st.write("文件内容：")
+    st.write("File content:")
     st.dataframe(file_data)

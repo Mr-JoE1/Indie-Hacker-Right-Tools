@@ -5,21 +5,21 @@ from urllib.parse import urlparse
 
 def load_backlink_data():
     """
-    读取并加载backlink.json文件
+    Read and load the backlink.json file
     """
     try:
         with open("code/backlink.json", "r") as file:
             return json.load(file)
     except FileNotFoundError:
-        print("[!] 未找到backlink.json文件。")
+        print("[!] backlink.json file not found.")
         sys.exit()
     except json.JSONDecodeError:
-        print("[!] 解析backlink.json文件失败。")
+        print("[!] Failed to parse backlink.json file.")
         sys.exit()
 
 def check_backlink(site, backlink_data):
     """
-    检查每个反向链接的状态
+    Check the status of each backlink
     """
     for backlink in backlink_data:
         url = backlink['url'].replace("uhaka.com", site)
@@ -29,10 +29,10 @@ def check_backlink(site, backlink_data):
         except KeyboardInterrupt:
             sys.exit()
         except:
-            status_code = "请求失败"
+            status_code = "Request failed"
 
-        domain = urlparse(url).netloc  # 使用 urlparse 提取域名部分
-        print(f"~ {site} | 结果 -> {domain} 状态: {status_code}")
+        domain = urlparse(url).netloc  # Use urlparse to extract the domain part
+        print(f"~ {site} | Result -> {domain} Status: {status_code}")
 
         if status_code == 200 or status_code == 502:
             with open("200status.txt", "a+") as file:
@@ -40,9 +40,9 @@ def check_backlink(site, backlink_data):
 
 def main():
     """
-    主函数，串联各个子功能
+    Main function, connects various sub-functions
     """
-    domain = "www.uhaka.com"  # 修改此变量来控制要添加外链的站点
+    domain = "www.uhaka.com"  # Modify this variable to control the site to add backlinks to
     backlink_data = load_backlink_data()
     check_backlink(domain, backlink_data)
 
@@ -50,4 +50,4 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print(f"\n\n -> 因为错误退出: {e}\n")
+        print(f"\n\n -> Exited due to error: {e}\n")

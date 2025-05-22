@@ -1,32 +1,32 @@
-# 教程参考：
+# Tutorial Reference:
  - https://github.com/XiaomingX/my-simple-springboot-app
 
-# Java安全教育实验框架 (Java Security Education Framework)
+# Java Security Education Framework
 
 [GitHub stars
 [License
 [PRs Welcome
 
-## 🚀 项目简介
+## 🚀 Project Introduction
 
-一个基于SpringBoot的综合性安全教育平台，专注于帮助开发者、安全研究人员和学习者深入理解Web安全漏洞。本项目提供了35+种常见安全漏洞的实例，支持动手实践和验证。
+A comprehensive security education platform based on SpringBoot, focusing on helping developers, security researchers, and learners deeply understand Web security vulnerabilities. This project provides examples of 35+ common security vulnerabilities, supporting hands-on practice and verification.
 
-### ✨ 特色功能
+### ✨ Key Features
 
-- 📚 全面的漏洞类型覆盖（35+种常见Web安全漏洞）
-- 🔧 开箱即用的部署方案
-- 🎯 详细的漏洞原理解释和复现步骤
-- 🛠 完整的API接口文档
-- 💡 丰富的学习资源和最佳实践指南
+- 📚 Comprehensive coverage of vulnerability types (35+ common Web security vulnerabilities)
+- 🔧 Out-of-the-box deployment plan
+- 🎯 Detailed explanations of vulnerability principles and reproduction steps
+- 🛠 Complete API interface documentation
+- 💡 Rich learning resources and best practice guides
 
-## 🔥 快速开始
+## 🔥 Quick Start
 
-### 环境要求
+### Environment Requirements
 - JDK 17+
 - Maven 3.6+
 - Git
 
-### 本地运行
+### Local Run
 ```bash
 git clone --depth 1 https://github.com/zgimszhd61/java-sec-code-plus
 cd java-sec-code-plus
@@ -34,57 +34,57 @@ mvn install
 mvn spring-boot:run
 ```
 
-访问 `http://localhost:8080/hi` 确认服务是否正常运行。
+Visit `http://localhost:8080/hi` to confirm if the service is running normally.
 
-## 📚 功能模块
+## 📚 Function Modules
 
 <details>
-<summary>🛡️ 支持的漏洞类型（点击展开）</summary>
+<summary>🛡️ Supported Vulnerability Types (click to expand)</summary>
 
-- **注入类漏洞**：SQL注入、命令注入、SPEL注入等
-- **认证授权漏洞**：身份认证绕过、越权访问等
-- **配置安全**：错误配置、默认密码等
-- **更多详见完整文档...**
+- **Injection Class Vulnerabilities**: SQL injection, command injection, SPEL injection, etc.
+- **Authentication and Authorization Vulnerabilities**: Identity authentication bypass, privilege escalation, etc.
+- **Configuration Security**: Misconfiguration, default password, etc.
+- **More details in the complete documentation...**
 </details>
 
-## 🎯 应用场景
+## 🎯 Application Scenarios
 
-- 安全研发培训
-- 渗透测试学习
-- 安全产品测试验证
-- 代码审计实践
-- 安全意识教育
+- Security development training
+- Penetration testing learning
+- Security product testing and verification
+- Code review practice
+- Security awareness education
 
-## 📖 详细文档
+## 📖 Detailed Documentation
 
-- [部署指南](docs/deployment.md)
-- [漏洞列表](docs/vulnerabilities.md)
-- [API文档](docs/api.md)
-- [最佳实践](docs/best-practices.md)
+- [Deployment Guide](docs/deployment.md)
+- [Vulnerability List](docs/vulnerabilities.md)
+- [API Documentation](docs/api.md)
+- [Best Practices](docs/best-practices.md)
 
-## 🤝 贡献指南
+## 🤝 Contribution Guidelines
 
-我们欢迎所有形式的贡献，包括但不限于：
+We welcome all forms of contributions, including but not limited to:
 
-- 提交问题和建议
-- 改进文档
-- 提交代码修复
-- 添加新功能
+- Submitting issues and suggestions
+- Improving documentation
+- Submitting code fixes
+- Adding new features
 
-请查看[贡献指南](CONTRIBUTING.md)了解详情。
+Please refer to the [Contribution Guidelines](CONTRIBUTING.md) for details.
 
-## 📄 开源许可
+## 📄 Open Source License
 
-本项目采用 [MIT 许可证](LICENSE)。
+This project is licensed under the [MIT License](LICENSE).
 
-## ⭐ Star历史
+## ⭐ Star History
 
 [Star History Chart
 
-## 🌟 致谢
+## 🌟 Acknowledgments
 
-感谢所有贡献者对本项目的支持！
+Thank you to all contributors for their support to this project!
 
 ---
 
-> 🔔 免责声明：本项目仅供学习和研究使用，禁止用于非法用途。使用本项目进行测试时，请确保已经获得相关授权。
+> 🔔 Disclaimer: This project is only for learning and research purposes, and is prohibited from being used for illegal purposes. When using this project for testing, please ensure that you have obtained the relevant authorization.

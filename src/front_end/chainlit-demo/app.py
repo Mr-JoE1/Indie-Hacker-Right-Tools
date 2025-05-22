@@ -11,37 +11,37 @@ from pydub.playback import play
 
 client = OpenAI()
 
-# 新增函数：接收语音输入并转化为文本
+# New function: Receive voice input and convert it to text
 def save_and_convert_voice():
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
-        print("请说话...")
+        print("Please speak...")
         audio = recognizer.listen(source)
 
-        # 生成语音文件的hash名
+        # Generate a hash name for the audio file
         audio_data = audio.get_wav_data()
         audio_hash = hashlib.sha256(audio_data).hexdigest()
         file_name = f"{audio_hash}.wav"
 
-        # 保存音频文件
+        # Save the audio file
         with open(file_name, "wb") as f:
             f.write(audio_data)
 
-        # 使用 pydub 播放音频文件（可选）
+        # Use pydub to play the audio file (optional)
         audio_segment = AudioSegment.from_wav(file_name)
         play(audio_segment)
 
-        # 将语音转化为文字
+        # Convert the voice to text
         try:
-            text = recognizer.recognize_google(audio, language="zh-CN")
-            print(f"语音转文字结果: {text}")
+            text = recognizer.recognize_google(audio, language="en-US")
+            print(f"Voice to text result: {text}")
             return text
         except sr.UnknownValueError:
-            print("无法理解语音")
-            return "抱歉，我无法理解您的语音。"
+            print("Could not understand the voice")
+            return "Sorry, I couldn't understand your voice."
         except sr.RequestError as e:
-            print(f"语音识别服务错误: {e}")
-            return "抱歉，语音识别服务出现错误。"
+            print(f"Voice recognition service error: {e}")
+            return "Sorry, there was an error with the voice recognition service."
 
 async def get_data_from_openai(prompt, chat_history):
     print(chat_history)
@@ -55,26 +55,26 @@ async def get_data_from_openai(prompt, chat_history):
 @cl.on_chat_start
 async def start():
     
-    # 通过优化使得用户可以感受到机器人在思考
-    await asyncio.sleep(1)  # 模拟思考时间
+    # Simulate thinking time to make the user feel like the robot is thinking
+    await asyncio.sleep(1)  # Simulate thinking time
 
     await cl.Message(
-        content=f"我是一个简单的聊天机器人。请问有什么我可以帮你的吗？"
+        content=f"I'm a simple chatbot. How can I assist you today?"
     ).send()
 
 @cl.on_message
 async def main(message: cl.Message, chat_history=[]):
-    # 新增：检查用户是否选择了语音输入
-    if message.content.lower() == "语音输入":
+    # New: Check if the user has selected voice input
+    if message.content.lower() == "voice input":
         voice_text = save_and_convert_voice()
         message.content = voice_text
     
-    # 优化数据获取函数，支持异步
+    # Optimized data retrieval function to support async
     response = await get_data_from_openai(message.content, chat_history)
     
-    # 更新聊天历史
+    # Update chat history
     chat_history.append({"role": "user", "content": message.content})
     chat_history.append({"role": "assistant", "content": response})
     
-    # 发送响应
+    # Send response
     await cl.Message(content=response).send()

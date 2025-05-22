@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="https://github.com/yourusername/yourrepo/raw/main/assets/banner.png" alt="Banner" />
+</p>
+
+
+
 ## 🚀 **Unlock Your Indie Hacker Potential with the Right Tools!**
 
 As an indie hacker, solo developer, or niche micro SaaS creator, you know how crucial it is to have the right tools to boost your productivity, save costs, and ensure your project's success. 🚀
@@ -14,7 +20,7 @@ Everyone is welcome to contribute to this tool library, ensuring every indie hac
 
 ## How to Contribute
 
- - Contributions are welcome. To recommend or self-recommend articles/software/resources, please [submit an issue](https://github.com/XiaomingX/indie-hacker-tools-plus/issues/new).
+ - Contributions are welcome. To recommend or self-recommend articles/software/resources, please [submit an issue](https://github.com/Mr-JoE1/Indie-Hacker-Right-Tools/issues/new).
 
 
 ## 🌐 Web Development Templates

@@ -1,5 +1,5 @@
 # Please install OpenAI SDK first: `pip3 install openai`
-## 文档地址：
+## Documentation URL:
 ### https://api-docs.deepseek.com/
 
 from openai import OpenAI

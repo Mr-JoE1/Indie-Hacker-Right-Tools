@@ -1,11 +1,11 @@
-### 安装 Streamlit
-如果尚未安装 Streamlit，请在终端中运行以下命令：
+### Install Streamlit
+If you haven't installed Streamlit yet, run the following command in your terminal:
 ```bash
 pip install streamlit
 ```
 
-### 运行 Demo
-在终端中运行以下命令：
+### Run Demo
+Run the following command in your terminal:
 ```bash
 streamlit run app.py
 ```
