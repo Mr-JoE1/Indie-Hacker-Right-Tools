@@ -47,7 +47,7 @@ Everyone is welcome to contribute to this tool library, ensuring every indie hac
 
 | Tech Stack | Notes|
 | --- | --- |
-| [Next.js](https://nextjs.org/)🌟 | React-based, with learning tutorials:<br>[Chinese Documentation >>](https://nextjscn.org/)<br>[Practice Tutorial >>](https://nextjs.weijunext.com/)  |
+| [Next.js](https://nextjs.org/)🌟 | React-based, with learning tutorials:<br>[Practice Tutorial >>](https://nextjs.weijunext.com/)  |
 | [Vue.js](https://vuejs.org/) | Easy-to-learn frontend framework, suitable for rapid development |
 | [Remix](https://remix.run/) | Modern framework based on React, focusing on user experience |
 | [Svelte](https://svelte.dev/) | Emerging framework, excellent performance|
