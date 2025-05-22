@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/yourusername/yourrepo/raw/main/assets/banner.png" alt="Banner" />
+  <img src="https://github.com/Mr-JoE1/Indie-Hacker-Right-Tools/blob/master/banner.png" alt="Banner" />
 </p>
 
 
